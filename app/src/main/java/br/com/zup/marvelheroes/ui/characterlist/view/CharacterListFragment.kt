@@ -12,6 +12,7 @@ import br.com.zup.marvelheroes.CHARACTER_KEY
 import br.com.zup.marvelheroes.R
 import br.com.zup.marvelheroes.databinding.FragmentCharacterListBinding
 import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.ui.home.view.MainActivity
 
 class CharacterListFragment : Fragment() {
     private lateinit var binding: FragmentCharacterListBinding
@@ -34,6 +35,7 @@ class CharacterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.character_title_menu)
 
         createList()
     }
