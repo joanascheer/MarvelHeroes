@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import br.com.zup.marvelheroes.domain.model.Personagem
+import br.com.zup.marvelheroes.domain.model.SingleLiveEvent
 import br.com.zup.marvelheroes.domain.usecase.PersonagemUseCase
 import br.com.zup.marvelheroes.ui.viewstate.ViewState
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +14,7 @@ import kotlinx.coroutines.withContext
 
 class CharacterViewModel(application: Application) : AndroidViewModel(application) {
     private val personagemUseCase = PersonagemUseCase(application)
-    val personagemListState = MutableLiveData<ViewState<List<Personagem>>>()
+    val personagemListState = SingleLiveEvent<ViewState<List<Personagem>>>()
 
     fun getAllCharacters() {
         viewModelScope.launch {
