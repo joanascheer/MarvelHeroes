@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.marvelheroes.CHARACTER_KEY
 import br.com.zup.marvelheroes.R
 import br.com.zup.marvelheroes.databinding.FragmentCharacterListBinding
-import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.domain.model.Personagem
 import br.com.zup.marvelheroes.ui.characterlist.viewmodel.CharacterViewModel
 import br.com.zup.marvelheroes.ui.home.view.MainActivity
 import br.com.zup.marvelheroes.ui.viewstate.ViewState
@@ -143,7 +143,7 @@ class CharacterListFragment : Fragment() {
 //
 //    }
 
-    private fun goToCharacterDetail(char: Character) {
+    private fun goToCharacterDetail(char: Personagem) {
         val bundle = bundleOf(CHARACTER_KEY to char)
 
         NavHostFragment.findNavController(this)
@@ -152,7 +152,7 @@ class CharacterListFragment : Fragment() {
     }
 
     private fun initObserver() {
-        viewModel.characterListState.observe(this.viewLifecycleOwner) {
+        viewModel.personagemListState.observe(this.viewLifecycleOwner) {
 
             when (it) {
                 is ViewState.Success -> {

@@ -12,4 +12,6 @@
     <string name="salvar_btn_txt">salvar</string>
     <string name="url_img_txt">Digite url da imagem</string>
     <string name="baixar_imagem_txt">baixar imagem</string>
+    <string name="inser_url_txt">Insira URL de imagem</string>
+    <string name="http_txt">http://</string>
 </resources>

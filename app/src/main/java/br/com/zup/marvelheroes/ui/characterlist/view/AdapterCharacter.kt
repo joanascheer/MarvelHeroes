@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.marvelheroes.R
-import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.domain.model.Personagem
 
 class AdapterCharacter(
-    private var characterList: MutableList<Character>,
-    private val click: (char: Character) -> Unit,
+    private var personagemList: MutableList<Personagem>,
+    private val click: (char: Personagem) -> Unit,
 ) : RecyclerView.Adapter<AdapterCharacter.CharacterViewHolder>() {
 
 
@@ -22,26 +22,26 @@ class AdapterCharacter(
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        val char = characterList[position]
-        holder.picture.setImageResource(characterList[position].characterPicture)
-        holder.name.text = characterList[position].characterName
+        val char = personagemList[position]
+        holder.picture.setImageResource(personagemList[position].characterPicture)
+        holder.name.text = personagemList[position].characterName
         holder.itemView.setOnClickListener {
             click(char)
         }
     }
 
-    override fun getItemCount(): Int = characterList.size
+    override fun getItemCount(): Int = personagemList.size
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val picture = itemView.findViewById<ImageView>(R.id.ivPersonagem)
         val name = itemView.findViewById<TextView>(R.id.nomePersonagem)
     }
 
-    fun refreshList (newList: List<Character>){
-        if (characterList.size == 0){
-            characterList = newList as MutableList<Character>
+    fun refreshList (newList: List<Personagem>){
+        if (personagemList.size == 0){
+            personagemList = newList as MutableList<Personagem>
         }else{
-            characterList.addAll(newList)
+            personagemList.addAll(newList)
         }
         notifyDataSetChanged()
     }

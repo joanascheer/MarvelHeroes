@@ -11,41 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/ivMarvelLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_marvel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvInsertUrl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/ivMarvelLogo"
+            android:layout_margin="@dimen/margin_16"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/inser_url_txt"
+            android:textSize="@dimen/textsize_20" />
 
         <EditText
-            android:id="@+id/etCharacterPic"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/url_img_txt"
-            android:inputType="textUri"
-            android:selectAllOnFocus="true"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <Button
-            android:id="@+id/btnImageLoad"
+            android:id="@+id/etImageHere"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/etCharacterPic"
+            app:layout_constraintTop_toBottomOf="@id/tvInsertUrl"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/baixar_imagem_txt"
-            />
+            android:hint="@string/http_txt"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true"/>
 
         <EditText
             android:id="@+id/etCharacterName"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_hint"
             android:inputType="text"
             android:selectAllOnFocus="true"
-            app:layout_constraintTop_toBottomOf="@id/etCharacterPic"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/etImageHere" />
 
         <EditText
             android:id="@+id/etCharacterDescription"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/description_hint"
             android:inputType="text"

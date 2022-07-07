@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import br.com.zup.marvelheroes.CHARACTER_KEY
 import br.com.zup.marvelheroes.R
 import br.com.zup.marvelheroes.databinding.FragmentCharacterDetailBinding
-import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.domain.model.Personagem
 import br.com.zup.marvelheroes.ui.home.view.MainActivity
 
 class CharacterDetailFragment : Fragment() {
@@ -31,12 +31,13 @@ class CharacterDetailFragment : Fragment() {
     }
 
     private fun getCharacterDetails() {
-        val char = arguments?.getParcelable<Character>(CHARACTER_KEY)
+        val char = arguments?.getParcelable<Personagem>(CHARACTER_KEY)
 
-        if (char != null) {
-            binding.ivDetalhePersonagem.setImageResource(char.getPicture())
-            binding.tvDetalheNomePersonagem.text = char.getName()
-            binding.tvDetalheDescricaoPersonagem.text = char.getDescription()
+        char?.let {
+            binding.ivDetalhePersonagem.setImageResource(it.characterPicture)
+            binding.tvDetalheNomePersonagem.text = it.characterName
+            binding.tvDetalheDescricaoPersonagem.text = it.characterDescripion
+            (activity as MainActivity).supportActionBar?.title = it.characterName
         }
 
     }

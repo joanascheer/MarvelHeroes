@@ -1,13 +1,13 @@
 package br.com.zup.marvelheroes.data.datasource.local.database
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
+import br.com.zup.marvelheroes.data.datasource.local.Converters
 import br.com.zup.marvelheroes.data.datasource.local.dao.CharacterDAO
-import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.domain.model.Personagem
 
-@Database(entities = [Character::class], version = 1)
+@Database(entities = [Personagem::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class CharacterDatabase: RoomDatabase() {
     abstract fun characterDao() : CharacterDAO
 

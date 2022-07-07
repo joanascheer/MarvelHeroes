@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.marvelheroes.R
 import br.com.zup.marvelheroes.databinding.FragmentCharacterAddBinding
-import br.com.zup.marvelheroes.domain.model.Character
+import br.com.zup.marvelheroes.domain.model.Personagem
 import br.com.zup.marvelheroes.ui.characteradd.viewmodel.CharacterAddViewModel
 import br.com.zup.marvelheroes.ui.home.view.MainActivity
 import br.com.zup.marvelheroes.ui.viewstate.ViewState
@@ -24,7 +24,7 @@ class CharacterAddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCharacterAddBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -38,19 +38,25 @@ class CharacterAddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
             viewModel.insertCharacter(
-                Character(
+                Personagem(
                     //falta a imagem
                     characterName = binding.etCharacterName.text.toString(),
                     characterDescripion = binding.etCharacterDescription.text.toString()
                 )
             )
+            goToCharactersList()
         }
 
         initObserver()
     }
 
+    private fun goToCharactersList() {
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_characterAddFragment_to_characterListFragment)
+    }
+
     private fun initObserver() {
-        viewModel.characterAddState.observe(this.viewLifecycleOwner) {
+        viewModel.personagemAddState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
                     Toast.makeText(context, "Filme cadastrado com sucesso!", Toast.LENGTH_LONG)
