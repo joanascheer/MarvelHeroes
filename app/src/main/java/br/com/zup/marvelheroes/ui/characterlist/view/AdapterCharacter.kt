@@ -16,7 +16,8 @@ class AdapterCharacter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val itemList = LayoutInflater.from(parent.context).inflate(R.layout.personagem_item, parent, false)
+        val itemList =
+            LayoutInflater.from(parent.context).inflate(R.layout.personagem_item, parent, false)
         val holder = CharacterViewHolder(itemList)
         return holder
     }
@@ -38,12 +39,10 @@ class AdapterCharacter(
     }
 
 
-    fun refreshList (newList: List<Personagem>){
-        if (personagemList.size == 0){
-            personagemList = newList as MutableList<Personagem>
-        }else{
-            personagemList.addAll(newList)
-        }
+    fun refreshList(newList: List<Personagem>) {
+
+        personagemList = newList as MutableList<Personagem>
+
         notifyDataSetChanged()
     }
 }

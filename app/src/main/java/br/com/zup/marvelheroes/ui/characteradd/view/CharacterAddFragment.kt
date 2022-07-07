@@ -43,7 +43,6 @@ class CharacterAddFragment : Fragment() {
             )
             goToCharactersList()
         }
-
         initObserver()
     }
 

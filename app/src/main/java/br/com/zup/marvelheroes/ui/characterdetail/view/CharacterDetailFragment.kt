@@ -11,7 +11,8 @@ import br.com.zup.marvelheroes.databinding.FragmentCharacterDetailBinding
 import br.com.zup.marvelheroes.domain.model.Personagem
 import br.com.zup.marvelheroes.ui.home.view.MainActivity
 
-class CharacterDetailFragment : Fragment() {
+class CharacterDetailFragment(
+) : Fragment() {
     private lateinit var binding: FragmentCharacterDetailBinding
 
     override fun onCreateView(
