@@ -7,7 +7,7 @@ import androidx.room.Query
 import br.com.zup.marvelheroes.domain.model.Personagem
 
 @Dao
-interface CharacterDAO {
+interface PersonagemDAO {
     @Query("SELECT * FROM characters ORDER BY nome ASC")
     fun getAllCharacters() : List<Personagem>
 

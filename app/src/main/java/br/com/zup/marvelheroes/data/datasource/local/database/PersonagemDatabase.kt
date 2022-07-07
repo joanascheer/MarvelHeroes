@@ -3,18 +3,18 @@ package br.com.zup.marvelheroes.data.datasource.local.database
 import android.content.Context
 import androidx.room.*
 import br.com.zup.marvelheroes.data.datasource.local.Converters
-import br.com.zup.marvelheroes.data.datasource.local.dao.CharacterDAO
+import br.com.zup.marvelheroes.data.datasource.local.dao.PersonagemDAO
 import br.com.zup.marvelheroes.domain.model.Personagem
 
 @Database(entities = [Personagem::class], version = 1)
 @TypeConverters(Converters::class)
-abstract class CharacterDatabase: RoomDatabase() {
-    abstract fun characterDao() : CharacterDAO
+abstract class PersonagemDatabase: RoomDatabase() {
+    abstract fun characterDao() : PersonagemDAO
 
     companion object {
         @Volatile
-        private var INSTANCE: CharacterDatabase? = null
-        fun getDatabase(context: Context): CharacterDatabase {
+        private var INSTANCE: PersonagemDatabase? = null
+        fun getDatabase(context: Context): PersonagemDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -22,7 +22,7 @@ abstract class CharacterDatabase: RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    CharacterDatabase::class.java,
+                    PersonagemDatabase::class.java,
                     "character_database"
                 ).fallbackToDestructiveMigration()
                     .build()
