@@ -31,18 +31,15 @@ class CharacterAddFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.main_title)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
-            viewModel.insertCharacter(
-                Personagem(
-                    //falta a imagem
-                    characterName = binding.etCharacterName.text.toString(),
-                    characterDescripion = binding.etCharacterDescription.text.toString()
-                )
+            viewModel.verifyCharacter(
+                name = binding.etCharacterName.text.toString(),
+                description = binding.etCharacterDescription.text.toString(),
             )
             goToCharactersList()
         }
@@ -59,6 +56,7 @@ class CharacterAddFragment : Fragment() {
         viewModel.personagemAddState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
+                    cleanEditText()
                     Toast.makeText(context, "Filme cadastrado com sucesso!", Toast.LENGTH_LONG)
                         .show()
                 }
@@ -68,6 +66,12 @@ class CharacterAddFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun cleanEditText() {
+        binding.etCharacterName.text.clear()
+        binding.etCharacterDescription.text.clear()
+        binding.etImageHere.text.clear()
     }
 
 }

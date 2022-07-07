@@ -18,14 +18,30 @@ class CharacterAddViewModel(application: Application) : AndroidViewModel(applica
     fun insertCharacter(char: Personagem) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    personagemUseCase.insertCharacter(char)
-                }
-                personagemAddState.value = response
+//                val response = withContext(Dispatchers.IO) {
+//                    personagemUseCase.insertCharacter(char)
+//                }
+//                personagemAddState.value = response
             } catch (ex: Exception) {
                 personagemAddState.value =
                     ViewState.Error(Throwable("Não foi possível inserir o filme!"))
             }
+        }
+    }
+
+    fun verifyCharacter(
+        name: String,
+        description:String
+    ) {
+        if (name.isNotEmpty() && description.isNotEmpty()) {
+            insertCharacter(
+                Personagem(
+                    characterName = name,
+                    characterDescripion = description
+                )
+            )
+        } else {
+            personagemAddState.value = ViewState.Error(Throwable("Por favor, preencha os campos corretamente!"))
         }
     }
 }

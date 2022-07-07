@@ -14,4 +14,9 @@
     <string name="baixar_imagem_txt">baixar imagem</string>
     <string name="inser_url_txt">Insira URL de imagem</string>
     <string name="http_txt">http://</string>
+    <string name="favorite_heart">Coração para favoritar filme</string>
+    <string name="description_txt">Descrição exemplo</string>
+    <string name="name_character">Nome Personagem</string>
+    <string name="img_character_txt">Imagem de personagem Marvel</string>
+    <string name="main_title">Marvel Heroes</string>
 </resources>

@@ -4,5 +4,6 @@
     <dimen name="size_300">300dp</dimen>
     <dimen name="margin_16">16dp</dimen>
     <dimen name="textsize_20">20sp</dimen>
+    <dimen name="size_40">40dp</dimen>
 
 </resources>

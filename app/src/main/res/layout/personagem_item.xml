@@ -16,7 +16,7 @@
         android:layout_height="@dimen/size_100"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/dr_estranho"
+        android:src="@drawable/ic_marvel"
         android:scaleType="centerCrop"/>
 
     <TextView
