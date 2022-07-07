@@ -42,15 +42,6 @@
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/tv_detalhe_nome_personagem" />
 
-        <ImageView
-            android:id="@+id/ivFavorite"
-            android:layout_width="@dimen/size_40"
-            android:layout_height="@dimen/size_40"
-            android:layout_margin="@dimen/margin_16"
-            android:contentDescription="@string/favorite_heart"
-            android:src="@drawable/ic_favorite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

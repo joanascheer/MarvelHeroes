@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import br.com.zup.marvelheroes.ERROR_FIELDS
 import br.com.zup.marvelheroes.domain.model.Personagem
 import br.com.zup.marvelheroes.domain.model.SingleLiveEvent
 import br.com.zup.marvelheroes.domain.usecase.PersonagemUseCase
@@ -16,7 +17,7 @@ class CharacterAddViewModel(application: Application) : AndroidViewModel(applica
     private val personagemUseCase = PersonagemUseCase(application)
     val personagemAddState = MutableLiveData<ViewState<Personagem>>()
 
-    fun insertCharacter(char: Personagem) {
+    private fun insertCharacter(char: Personagem) {
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -42,7 +43,7 @@ class CharacterAddViewModel(application: Application) : AndroidViewModel(applica
                 )
             )
         } else {
-            personagemAddState.value = ViewState.Error(Throwable("Por favor, preencha os campos corretamente!"))
+            personagemAddState.value = ViewState.Error(Throwable(ERROR_FIELDS))
         }
     }
 }
