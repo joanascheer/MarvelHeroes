@@ -19,4 +19,13 @@
         android:name="br.com.zup.marvelheroes.ui.characterdetail.view.CharacterDetailFragment"
         android:label="fragment_character_detail"
         tools:layout="@layout/fragment_character_detail" />
+    <fragment
+        android:id="@+id/characterAddFragment"
+        android:name="br.com.zup.marvelheroes.ui.characteradd.view.CharacterAddFragment"
+        android:label="fragment_character_add"
+        tools:layout="@layout/fragment_character_add" >
+        <action
+            android:id="@+id/action_characterAddFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
+    </fragment>
 </navigation>

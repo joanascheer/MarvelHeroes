@@ -37,9 +37,9 @@ class AdapterCharacter(
         val name = itemView.findViewById<TextView>(R.id.nomePersonagem)
     }
 
-    fun refreshList (newList: MutableList<Character>){
+    fun refreshList (newList: List<Character>){
         if (characterList.size == 0){
-            characterList = newList
+            characterList = newList as MutableList<Character>
         }else{
             characterList.addAll(newList)
         }

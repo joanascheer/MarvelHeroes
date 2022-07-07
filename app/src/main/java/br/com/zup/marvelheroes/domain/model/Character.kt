@@ -13,11 +13,11 @@ class Character(
     @ColumnInfo(name = "cod_character")
     val characterId: Long = 1,
     @ColumnInfo(name = "foto")
-    val characterPicture: Int,
+    val characterPicture: Int = 0,
     @ColumnInfo(name = "nome")
-    val characterName: String,
+    val characterName: String = "",
     @ColumnInfo(name = "descricao")
-    val characterDescripion: String,
+    val characterDescripion: String = "",
 
 ) : Parcelable {
     fun getName() = characterName

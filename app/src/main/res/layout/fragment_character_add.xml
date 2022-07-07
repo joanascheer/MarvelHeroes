@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.characteradd.view.CharacterAddFragment"
+    android:layout_margin="@dimen/margin_16">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/etCharacterPic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/url_img_txt"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnImageLoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/etCharacterPic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/baixar_imagem_txt"
+            />
+
+        <EditText
+            android:id="@+id/etCharacterName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome_hint"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            app:layout_constraintTop_toBottomOf="@id/etCharacterPic"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/etCharacterDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/description_hint"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            app:layout_constraintTop_toBottomOf="@id/etCharacterName"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salvar_btn_txt"
+            android:layout_margin="@dimen/margin_16"
+            app:layout_constraintTop_toBottomOf="@id/etCharacterDescription"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
